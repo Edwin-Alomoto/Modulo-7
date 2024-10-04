@@ -1,0 +1,13 @@
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <th scope="col">No.</th>
+        <th scope="col">INDENTIFICATION</th>
+        <th scope="col">NAME</th>
+        <th scope="col">SURNAME</th>
+    </thead>
+    <tbody>
+        @for (item of courseTable.students; track $index) {
+        <app-item-view [itemView]="item"></app-item-view>
+        }
+    </tbody>
+</table>

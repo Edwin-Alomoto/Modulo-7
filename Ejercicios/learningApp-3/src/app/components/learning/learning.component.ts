@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../Model/Course';
 import { CourseService } from '../../services/course.service';
+import { CourseViewComponent } from "../course-view/course-view.component";
+import { TableViewComponent } from "../table-view/table-view.component";
 
 @Component({
   selector: 'app-learning',
   standalone: true,
-  imports: [],
+  imports: [CourseViewComponent, TableViewComponent],
   templateUrl: './learning.component.html',
   styleUrl: './learning.component.css',
 })

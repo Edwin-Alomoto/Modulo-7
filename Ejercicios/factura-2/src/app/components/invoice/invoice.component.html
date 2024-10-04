@@ -11,48 +11,14 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <h3>EMPRESA</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">RUC: {{ invoice.company.ruc }}</li>
-                        <li class="list-group-item">NOMBRE: {{ invoice.company.name }}</li>
-                        <li class="list-group-item">DIRECCION:{{ invoice.company.address.city }} -
-                            {{ invoice.company.address.principalStreet }}
-                            {{ invoice.company.address.secondaryStreet }}
-                        </li>
-                    </ul>
+                    <app-company-view [company]="invoice.company"></app-company-view>
                 </div>
                 <div class="col">
-                    <h3>CLIENTE</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item"> NOMBRE: {{ invoice.customer.name }} {{ invoice.customer.surname }}</li>
-                        <li class="list-group-item">CEDULA: {{ invoice.customer.id }}</li>
-                        <li class="list-group-item">
-                            DIRECCION:{{ invoice.customer.address.city }} -
-                            {{ invoice.customer.address.principalStreet }}
-                            {{ invoice.customer.address.secondaryStreet }}
-                        </li>
-                    </ul>
+                    <app-customer [customer]="invoice.customer"></app-customer>
                 </div>
             </div>
-            <div class="card my-3">
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                        <th scope="col">No.</th>
-                        <th scope="col">PRODUCTO</th>
-                        <th scope="col">PRECIO</th>
-                        <th scope="col">CANTIDAD</th>
-                    </thead>
-                    <tbody>
-                        @for (item of invoice.items; track $index) {
-                        <tr>
-                            <td>{{ $index }}</td>
-                            <td>{{ item.product.name }}</td>
-                            <td>{{ item.product.price }}</td>
-                            <td>{{ item.quantity }}</td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
+            <div class="card -3">
+                <app-table-invoice [items]="invoice.items"></app-table-invoice>
             </div>
         </div>
     </div>
