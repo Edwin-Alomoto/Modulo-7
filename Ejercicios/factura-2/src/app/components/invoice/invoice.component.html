@@ -1,0 +1,56 @@
+<div>
+    <div>
+        <h2>FACTURA</h2>
+        <div>
+            <ul>
+                <li>No. {{ invoice.id }}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>EMPRESA</h3>
+            <ul>
+                <li>RUC: {{ invoice.company.ruc }}</li>
+                <li>NOMBRE: {{ invoice.company.name }}</li>
+                <li>
+                    DIRECCION:{{ invoice.company.address.city }} -
+                    {{ invoice.company.address.principalStreet }}
+                    {{ invoice.company.address.secondaryStreet }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>CLIENTE</h3>
+            <ul>
+                <li>
+                    NOMBRE: {{ invoice.customer.name }} {{ invoice.customer.surname }}
+                </li>
+                <li>CEDULA: {{ invoice.customer.id }}</li>
+                <li>
+                    DIRECCION:{{ invoice.customer.address.city }} -
+                    {{ invoice.customer.address.principalStreet }}
+                    {{ invoice.customer.address.secondaryStreet }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <th>No.</th>
+                    <th>PRODUCTO</th>
+                    <th>PRECIO</th>
+                    <th>CANTIDAD</th>
+                </thead>
+                <tbody>
+                    @for (item of invoice.items; track $index) {
+                    <tr>
+                        <td>{{$index}}</td>
+                        <td>{{item.product.name}}</td>
+                        <td>{{item.product.price}}</td>
+                        <td>{{item.quantity}}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

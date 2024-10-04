@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <h2>CURSO</h2>
+        <div>
+            <ul>
+                <li>No. {{ course.id }}</li>
+                <li>Name: {{ course.name}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>ESTUDIANTES</h3>
+            <table>
+                <thead>
+                    <th>No.</th>
+                    <th>INDENTIFICATION</th>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                </thead>
+                <tbody>
+                    @for (item of course.students; track $index) {
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.identification}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.surname}}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
